@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+
+.fab {
+    position: fixed;
+    bottom: 90px;
+    /* Adjusted to prevent overlap with the chatbox */
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #2563eb;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 1000;
+    /* Ensure FAB appears on top of other elements */
+}
+
+.fab:hover {
+    background-color: #2555be !important;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+}
+
+.fab:active {
+    transform: translateY(1px);
+}
+
+/* Bouncing animation */
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.animate-bounce {
+    animation: bounce 1s infinite;
+}
+
+ /* Responsive adjustments for the layout */
+ @media (min-width: 1024px) {
+    .ml-32 {
+        margin-left: 16rem;
+        /* This matches your current sidebar width */
+    }
+
+    main.container {
+        max-width: calc(100% - 16rem - 18rem);
+        /* Main content area = 100% - left sidebar - right sidebar */
+    }
+
+    /* Adjust section width to make room for the right sidebar */
+    section#feed {
+        max-width: 100%;
+    }
+}
+
+/* For mobile and tablet - hide the right sidebar */
+@media (max-width: 1023px) {
+    aside.fixed {
+        display: none;
+    }
+
+    main.container {
+        margin-left: 0;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    section#feed {
+        margin-left: 0;
+    }
+}
+
+/* Animation for the notification dot */
+.pulse-dot {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Cool gradient animations */
+.rotating-gradient {
+    background-size: 200% 200%;
+    animation: gradientRotation 3s ease infinite;
+}
+
+@keyframes gradientRotation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}

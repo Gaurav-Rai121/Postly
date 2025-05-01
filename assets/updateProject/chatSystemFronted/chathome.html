@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Search and Friend List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: radial-gradient(circle at top left, #1e3a8a, #9333ea, #1e3a8a);
+            overflow: hidden;
+        }
+        .bubble {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            animation: float 10s infinite ease-in-out;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 0.5; }
+            50% { transform: translateY(-50px); opacity: 0.8; }
+            100% { transform: translateY(0); opacity: 0.5; }
+        }
+        .theme-dark {
+            background: radial-gradient(circle at top left, #000428, #004e92);
+        }
+
+         /* Custom Scrollbar Styling */
+    .custom-scrollbar::-webkit-scrollbar {
+        width: 8px;
+       
+        background-color: transparent; /* Transparent background */
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background-color: rgba(255, 255, 255, 0.6); /* Light thumb color */
+        border-radius: 10px;
+        border: 2px solid rgba(255, 255, 255, 0.3); /* Slight border for contrast */
+       
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background-color: rgba(255, 255, 255, 0.8); /* Darker thumb color on hover */
+       
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.1); /* Track color */
+        border-radius: 10px;
+      
+    }
+    </style>
+</head>
+<body class="h-screen flex items-center justify-center theme-dark relative">
+    
+    <!-- Website Name & Logo -->
+    <div class="absolute top-6 left-6 flex items-center space-x-3 w-full justify-between">
+        <!-- Left Side: Logo and Title -->
+        <div class="flex items-center space-x-3">
+            <img src="../newlogo2.png" alt="Chat Logo" class="w-12 h-12">
+            <h1 class="text-white text-3xl font-bold">ChatNest</h1>
+        </div>
+        <!-- Right Side: Profile Image -->
+        <div class="flex items-center space-x-3 pr-12">
+            <p>gaurav</p>
+           <a href="./chatsetting.html"> <img src="https://res.cloudinary.com/dppoxf3gz/image/upload/v1733377532/UserProfileImages/ryzpegabgpqwzy1y9pil.jpg" alt="Tommy123's Profile" class="w-10 h-10 rounded-full ring-4 ring-red-700"></a>
+        </div>
+    </div>
+  
+
+    <!-- Main Content: Flex Layout -->
+    <div class="w-full max-w-screen-xl flex space-x-8 mt-12">
+        
+        <!-- Left: Friend List Section -->
+        <div class="w-1/3 p-6 bg-white/10 backdrop-blur-lg rounded-xl shadow-lg border border-white/20">
+            <h2 class="text-white text-2xl font-bold mb-6">Your Friend List</h2>
+            <ul class="space-y-3 max-h-80 overflow-y-auto custom-scrollbar">
+                <!-- Example Friend List Item -->
+                <li class="flex items-center justify-between p-4 mr-2 bg-white/20 rounded-lg transition">
+                    <img src="../images/download.jpeg" alt="JohnDoe's Profile" class="w-12 h-12 rounded-full">
+                    <span class="text-white ml-2 flex-1">JohnDoe</span>
+                    <button class="p-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition">Message</button>
+                </li>
+                
+                <li class="flex justify-between items-center p-4 mr-2 bg-white/20 rounded-lg transition">
+                    <span class="text-white">JaneSmith</span>
+                    <button class="p-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition">Message</button>
+                </li>
+                <li class="flex justify-between items-center p-4 mr-2 bg-white/20 rounded-lg transition">
+                    <span class="text-white">AlexDoe</span>
+                    <button class="p-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition">Message</button>
+                </li>
+                <li class="flex justify-between items-center p-4 mr-2  bg-white/20 rounded-lg transition">
+                    <span class="text-white">Tommy123</span>
+                    <button class="p-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition">Message</button>
+                </li>
+                <li class="flex justify-between items-center p-4 mr-2 bg-white/20 rounded-lg transition">
+                    <span class="text-white">Sara99</span>
+                    <button class="p-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition">Message</button>
+                </li>
+                <!-- More friends go here -->
+                <li class="flex justify-between items-center p-4 mr-2 bg-white/20 rounded-lg transition">
+                    <span class="text-white">MikeLee</span>
+                    <button class="p-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition">Message</button>
+                </li>
+                <li class="flex justify-between items-center p-4 mr-2 bg-white/20 rounded-lg transition ">
+                    <span class="text-white">LauraJones</span>
+                    <button class="p-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition">Message</button>
+                </li>
+                <li class="flex justify-between items-center p-4 mr-2 bg-white/20 rounded-lg transition">
+                    <span class="text-white">ChrisWu</span>
+                    <button class="p-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition">Message</button>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Right: User Search Section -->
+        <div class="w-2/3 p-6 bg-white/10 backdrop-blur-lg rounded-xl shadow-lg border border-white/20">
+            <h2 class="text-white text-2xl font-bold mb-6">Find a User</h2>
+            
+            <!-- Search Bar -->
+            <form action="search_users.php" method="POST" class="mb-6">
+                <input type="text" name="search" placeholder="Search for a user..." required class="w-full p-4 rounded-lg bg-white/20 text-white placeholder-white/60 focus:outline-none">
+            </form>
+            
+            <h3 class="text-white text-xl font-bold mb-4">Suggested Users</h3>
+            <ul class="space-y-3">
+                <!-- Example Users List -->
+                <li class="flex justify-between items-center p-3 bg-white/20 rounded-lg transition">
+                    <!-- Profile Image and Username (Left side) -->
+                    <div class="flex items-center space-x-4">
+                        <!-- Profile Image with a subtle shadow and rounded edges -->
+                        <div class="relative">
+                            <img src="../images/imageFour.jpeg" alt="Tommy123's Profile" class="w-14 h-14 rounded-full border-2 border-purple-600 shadow-md">
+                        </div>
+                        <!-- Username with no space -->
+                        <span class="text-white text-lg font-semibold">Tommy123</span>
+                    </div>
+                    <!-- Add Friend Button (Right side) -->
+                    <button class="p-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition">Add Friend</button>
+                </li>
+                
+                <li class="flex justify-between items-center p-4 bg-white/20 rounded-lg  transition">
+                    <span class="text-white">Sara99</span>
+                    <button class="p-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition">Add Friend</button>
+                </li>
+                <li class="flex justify-between items-center p-4 bg-white/20 rounded-lg  transition">
+                    <span class="text-white">MaxPower</span>
+                    <button class="p-2 bg-purple-600 text-white rounded-full hover:bg-purple-700 transition">Add Friend</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Floating Bubbles -->
+    <script>
+        for (let i = 0; i < 10; i++) {
+            let bubble = document.createElement('div');
+            bubble.classList.add('bubble');
+            document.body.appendChild(bubble);
+            bubble.style.left = Math.random() * 100 + "vw";
+            bubble.style.top = Math.random() * 100 + "vh";
+            bubble.style.animationDuration = Math.random() * 5 + 5 + "s";
+        }
+    </script>
+</body>
+</html>

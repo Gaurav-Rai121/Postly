@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Profile Image</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        body {
+            background: radial-gradient(circle at top left, #1e3a8a, #9333ea, #1e3a8a);
+            overflow: hidden;
+        }
+        .bubble {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            animation: float 10s infinite ease-in-out;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 0.5; }
+            50% { transform: translateY(-50px); opacity: 0.8; }
+            100% { transform: translateY(0); opacity: 0.5; }
+        }
+        .theme-dark {
+            background: radial-gradient(circle at top left, #000428, #004e92);
+        }
+        input #file-upload-button{
+            background-color: pink !important;
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col items-center justify-center theme-dark relative text-white">
+
+    <div class="absolute top-6 left-6 flex items-center space-x-3 w-full justify-between">
+        <!-- Left Side: Logo and Title -->
+        <div class="flex items-center space-x-3">
+            <img src="../newlogo2.png" alt="Chat Logo" class="w-12 h-12">
+            <h1 class="text-white text-3xl font-bold">ChatNest</h1>
+        </div>
+        <!-- Right Side: Profile Image -->  
+    </div>
+    
+    <!-- Settings Container -->
+    <div class="w-full max-w-md p-6 bg-white/10 backdrop-blur-lg rounded-xl shadow-lg border border-white/20">
+        <h2 class="text-white text-2xl font-bold text-center mb-6">Add Your Profile Image</h2>
+        <!-- Overlay Background -->
+      
+
+            <div class="relative z-10">
+                <!-- Heading -->
+              
+
+                <!-- Image Preview Section -->
+                <div class="flex justify-center mb-6">
+                    <img id="preview" src="../images/Levi Ackerman.jpeg" alt="Profile Image" class="w-40 h-40 rounded-full border-4  border-indigo-500 transition-all duration-300 cursor-pointer">
+                </div>
+
+                <!-- Form Section -->
+                <form action="upload_profile.php" method="POST" enctype="multipart/form-data" class="space-y-6">
+                    <div class="flex flex-col">
+                        <label for="profile-image" class="text-white text-lg font-medium">Choose Image</label>
+                        <input type="file" id="profile-image" name="profile_image" accept="image/*" class="mt-2 py-2 px-4 border-2 border-white rounded-lg bg-transparent text-white placeholder-white focus:outline-none  transition-all duration-300 cursor-pointer" onchange="previewImage(event)">
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="w-full py-3 px-6 bg-indigo-500 text-white text-lg font-semibold rounded-lg shadow-xl hover:bg-indigo-600 focus:outline-none focus:ring-4 focus:ring-indigo-400 transform  ">
+                        Add Profile Image
+                    </button>
+                </form>
+
+                <!-- Cancel Link -->
+                <div class="text-center mt-4">
+                    <a href="./chathome.html" class="text-indigo-300 hover:underline text-sm">Skip</a>
+                </div>
+            </div>
+        
+    
+    </div>
+
+    <script>
+
+function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function () {
+                const output = document.getElementById('preview');
+                output.src = reader.result;
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+
+        for (let i = 0; i < 10; i++) {
+            let bubble = document.createElement('div');
+            bubble.classList.add('bubble');
+            document.body.appendChild(bubble);
+            bubble.style.left = Math.random() * 100 + "vw";
+            bubble.style.top = Math.random() * 100 + "vh";
+            bubble.style.animationDuration = Math.random() * 5 + 5 + "s";
+        }
+    </script>
+</body>
+</html>

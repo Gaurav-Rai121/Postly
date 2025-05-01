@@ -1,0 +1,65 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0f172a;
+    background-image:
+        radial-gradient(at 10% 20%, rgba(59, 130, 246, 0.1) 0px, transparent 50%),
+        radial-gradient(at 90% 80%, rgba(236, 72, 153, 0.1) 0px, transparent 50%);
+    background-attachment: fixed;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #3b82f6;
+    border-radius: 10px;
+}
+
+/* Card hover effects */
+.post-card {
+    transition: all 0.3s ease;
+    border: 1px solid rgba(59, 130, 246, 0.1);
+}
+
+.post-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.3);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+/* Compose button animation */
+@keyframes pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(236, 72, 153, 0.7);
+    }
+
+    50% {
+        box-shadow: 0 0 0 15px rgba(236, 72, 153, 0);
+    }
+}
+
+.compose-btn {
+    animation: pulse 2s infinite;
+}
+
+/* Tag pills */
+.tag-pill {
+    transition: all 0.2s ease;
+}
+
+.tag-pill:hover {
+    transform: scale(1.05);
+}
+
+/* Like/dislike animation */
+.reaction-btn:active {
+    transform: scale(1.2);
+}

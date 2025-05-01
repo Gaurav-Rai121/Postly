@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReviewWorld Success</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4f46e5',
+                        secondary: '#f43f5e',
+                        accent: '#0ea5e9',
+                        dark: '#0f172a',
+                        'card-bg': '#1e293b',
+                        'text-light': '#f1f5f9',
+                        'text-secondary': '#94a3b8',
+                        success: '#10b981'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-dark text-text-light font-['Space_Grotesk']">
+    <div class="container max-w-4xl mx-auto px-4 sm:px-6 py-12 min-h-screen flex items-center justify-center">
+        <div class="feedback-wrapper relative w-full">
+            <!-- Background elements -->
+            <div class="absolute top-20 -left-36 w-72 h-72 rounded-full bg-primary opacity-20 blur-3xl z-0"></div>
+            <div class="absolute bottom-10 -right-48 w-96 h-96 rounded-full bg-secondary opacity-15 blur-3xl z-0"></div>
+            <div class="absolute top-1/3 right-1/4 w-48 h-48 rounded-full bg-accent opacity-20 blur-3xl z-0"></div>
+            
+            <!-- Grid pattern -->
+            <div class="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[length:20px_20px] z-0"></div>
+            
+            <!-- Header -->
+            <header class="flex justify-between items-center mb-12 pb-4 border-b border-white/10 relative z-10">
+                <div class="flex items-center gap-3">
+                    <div class="bg-gradient-to-r from-primary to-secondary h-10 w-10 rounded-lg flex items-center justify-center">
+                        <i class="fas fa-comments text-white"></i>
+                    </div>
+                    <span class="text-xl font-bold">ReviewWorld</span>
+                </div>
+                <div class="bg-white/10 px-3 py-1 rounded-full text-xs uppercase tracking-wider">Beta</div>
+            </header>
+            
+            <!-- Success Card -->
+            <div class="bg-card-bg rounded-2xl overflow-hidden shadow-2xl border border-white/5 backdrop-blur-lg relative z-10 transition-all duration-500 animate-[fadeIn_0.6s_ease-out]">
+                <div class="h-2 bg-gradient-to-r from-primary via-accent to-secondary"></div>
+                
+                <div class="p-8 sm:p-10 text-center">
+                    <!-- Success Animation -->
+                    <div class="mx-auto mb-8 w-24 h-24 relative">
+                        <div class="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-secondary opacity-20 animate-pulse"></div>
+                        <div class="absolute inset-1 bg-card-bg rounded-full flex items-center justify-center">
+                            <div class="h-12 w-12 rounded-full bg-gradient-to-r from-primary to-secondary flex items-center justify-center animate-[scale_0.5s_ease-out]">
+                                <i class="fas fa-check text-2xl text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h2 class="text-3xl font-bold mb-3 bg-gradient-to-r from-primary to-secondary text-transparent bg-clip-text">Feedback Received!</h2>
+                    <p class="text-text-secondary text-lg mb-8 max-w-md mx-auto">Thank you for helping shape ReviewWorld. Your insights will drive our community forward.</p>
+                    
+                    <!-- Stats -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+                        <div class="bg-white/5 rounded-xl p-4 backdrop-blur-sm border border-white/5 transition-all hover:transform hover:-translate-y-1 duration-300">
+                            <div class="text-3xl font-bold text-success mb-1">89%</div>
+                            <div class="text-text-secondary text-sm">User Satisfaction</div>
+                        </div>
+                        <div class="bg-white/5 rounded-xl p-4 backdrop-blur-sm border border-white/5 transition-all hover:transform hover:-translate-y-1 duration-300">
+                            <div class="text-3xl font-bold text-accent mb-1">247</div>
+                            <div class="text-text-secondary text-sm">Beta Testers</div>
+                        </div>
+                        <div class="bg-white/5 rounded-xl p-4 backdrop-blur-sm border border-white/5 transition-all hover:transform hover:-translate-y-1 duration-300">
+                            <div class="text-3xl font-bold text-secondary mb-1">63</div>
+                            <div class="text-text-secondary text-sm">Features Added</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Next Steps -->
+                    <div class="bg-gradient-to-r from-primary/10 to-secondary/10 rounded-xl p-6 mb-8 border border-white/5">
+                        <h3 class="font-semibold mb-2 text-lg">What's Next?</h3>
+                        <p class="text-text-secondary mb-4">We're reviewing all feedback and will be launching new features soon.</p>
+                        <div class="flex flex-wrap justify-center gap-4">
+                            <div class="flex items-center gap-2 text-text-secondary">
+                                <div class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary">
+                                    <i class="fas fa-bell text-sm"></i>
+                                </div>
+                                <span class="text-sm">Updates in 14 days</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-text-secondary">
+                                <div class="w-8 h-8 rounded-full bg-secondary/20 flex items-center justify-center text-secondary">
+                                    <i class="fas fa-star text-sm"></i>
+                                </div>
+                                <span class="text-sm">Early access enabled</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Action buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button class="bg-gradient-to-r from-primary to-secondary text-white font-semibold py-3 px-6 rounded-xl transition-all hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-1 duration-300 flex items-center justify-center gap-2">
+                            <span>Return to Dashboard</span>
+                            <i class="fas fa-arrow-right text-sm"></i>
+                        </button>
+                        <button class="bg-white/5 hover:bg-white/10 border border-white/10 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300">
+                            Share Feedback
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Confetti Effect -->
+                <div class="hidden sm:block absolute top-0 left-1/4 w-1 h-6 bg-primary animate-[fall_1s_ease-in_0.2s_forwards]"></div>
+                <div class="hidden sm:block absolute top-0 left-1/3 w-2 h-4 bg-secondary animate-[fall_0.8s_ease-in_0.1s_forwards]"></div>
+                <div class="hidden sm:block absolute top-0 right-1/4 w-1 h-8 bg-accent animate-[fall_1.2s_ease-in_0.3s_forwards]"></div>
+                <div class="hidden sm:block absolute top-0 right-1/2 w-2 h-5 bg-success animate-[fall_0.9s_ease-in_0.4s_forwards]"></div>
+            </div>
+            
+            <!-- Footer -->
+            <footer class="text-center mt-8 text-text-secondary text-sm relative z-10">
+                <p>© 2025 ReviewWorld • Help us build the best review community</p>
+                <div class="flex justify-center gap-4 mt-4">
+                    <a href="#" class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-text-secondary hover:bg-primary hover:text-white transition-all duration-300 hover:-translate-y-1">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-text-secondary hover:bg-primary hover:text-white transition-all duration-300 hover:-translate-y-1">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-9 h-9 rounded-full bg-white/5 flex items-center justify-center text-text-secondary hover:bg-primary hover:text-white transition-all duration-300 hover:-translate-y-1">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
+            </footer>
+        </div>
+    </div>
+    
+    <style>
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes scale {
+            0% { transform: scale(0); }
+            70% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes fall {
+            0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(calc(100vh - 100px)) rotate(720deg); opacity: 0; }
+        }
+    </style>
+</body>
+</html>

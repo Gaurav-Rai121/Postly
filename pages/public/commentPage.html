@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comments on Post</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #e6f0ff;
+      color: #333;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .userComment {
+      width: 90%;
+    }
+
+    .fixed-comment-input {
+      position: fixed;
+      bottom: 0;
+      left: 5.5%;
+      width: 80%;
+      background: #e6f0ff;
+      padding: 10px 20px;
+     
+      z-index: 10;
+    }
+
+    .comments-section {
+     padding-bottom: 120px; /* Increased space for fixed input */
+
+    }
+  </style>
+</head>
+<body class="bg-[#e6f0ff] text-gray-800 font-sans">
+
+
+    <nav
+        class="fixed top-0 left-0 h-full w-20 bg-gradient-to-b from-blue-500 to-purple-600 flex flex-col items-center py-6 shadow-lg md:w-16 lg:w-20">
+        <!-- Logo Section -->
+        <div class="w-full flex justify-center mb-6 ">
+            <a href="#">
+                <div class="rounded-full pb-4">
+                    <img src="newlogo2.png" alt="Logo" class="w-12 h-12">
+                    <img src="textfx.png" alt="Logo" class="w-12 h-4">
+                </div>
+            </a>
+        </div>
+
+        <!-- Navigation Icons -->
+        <div class="flex flex-col space-y-8 flex-grow">
+            <a href="home.html" class="text-white hover:bg-blue-600 p-3 rounded-lg flex justify-center">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" alt="Home" class="w-8 h-8">
+            </a>
+            <a href="explore.html" class="text-white hover:bg-blue-600 p-3 rounded-lg flex justify-center">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/search.png" alt="Search" class="w-8 h-8">
+            </a>
+
+            <a href="#" class="text-white hover:bg-blue-600 p-3 rounded-lg flex justify-center">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/speech-bubble.png" alt="Messages" class="w-8 h-8">
+            </a>
+            <a href="#" class="text-white hover:bg-blue-600 p-3 rounded-lg flex justify-center">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/appointment-reminders.png" alt="Notifications"
+                    class="w-8 h-8">
+            </a>
+
+            <a href="profile.html" class="text-white hover:bg-blue-600 p-3 rounded-lg flex justify-center">
+                <img src="https://res.cloudinary.com/dppoxf3gz/image/upload/v1733378311/UserProfileImages/fu229hyaauzelv2qik2v.jpg"
+                    alt="Profile" class="w-8 h-8 rounded-full">
+            </a>
+        </div>
+
+        <!-- Settings Icon at Bottom -->
+        <div class="mt-auto">
+            <a href="#" class="text-white hover:bg-blue-600 p-3 rounded-lg flex justify-center">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/settings.png" alt="Settings" class="w-8 h-8">
+            </a>
+        </div>
+    </nav>
+  <main class="space-y-8">
+
+    <!-- Post Section -->
+    <section class="bg-white ml-20">
+        <div
+        class="bg-[linear-gradient(to bottom, #f0f7ff, #ffffff)] rounded-lg  p-4  border-b-2 border-gray-200 relative">
+        <!-- Post Header (User Info) -->
+        <div class="flex items-center mb-4">
+            <!-- User Image with Border -->
+            <div class="relative">
+                <img src="https://i.pravatar.cc/150?img=1" alt="User Avatar"
+                    class="w-12 h-12 rounded-full border-4 border-pink-400">
+            </div>
+
+            <!-- User Info -->
+            <div class="ml-4">
+                <p class="inline font-semibold text-lg text-gray-800">John Doe</p>
+                <input class="hidden input" type="text" name="reputation" value="249" disabled id="">
+                <span
+                    class="fas fa-star badge ml-2 inline-flex items-center px-2 py-1 border-2 border-green-400 text-green-600 text-xs font-bold rounded-full bg-white shadow-md">
+
+                </span>
+
+
+
+                <p class="text-sm text-gray-500">2 hours ago</p>
+            </div>
+        </div>
+
+        <!-- Post Content (Text) -->
+        <p class="text-gray-700 mb-4">This is a sample post to demonstrate how a social media post will look.
+            It's clean, simple, and easy to read!</p>
+
+        <!-- Post Image (optional) -->
+        <img src="./images/Levi Ackerman.jpeg" alt="Post Image"
+            class="w-full max-h-[300px] md:max-h-[400px] lg:max-h-[500px] object-cover rounded-lg border-2 border-gray-300">
+
+        <button id=""
+            class="absolute top-3 right-12 bg-blue-500 text-white hover:bg-blue-600 px-4 py-1 rounded-lg ">
+            follow</button>
+        <!-- Three Dot Dropdown Icon (Positioned at the Right of Post) -->
+        <button id="" class="dropdownBtn absolute top-4 right-4 text-gray-600 hover:text-gray-900">
+            <i class="fas fa-ellipsis-v mr-2"></i>
+        </button>
+        <!-- Dropdown Menu -->
+        <div id=""
+            class="dropdownMenu hidden absolute top-8 right-0 mt-2 w-48 bg-white shadow-md rounded-lg border border-gray-200 z-10">
+            <ul class="text-gray-700">
+                <li><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100">Delete</a></li>
+                <li><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100">Share</a></li>
+                <li><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100">Add to Favorites</a></li>
+                <li><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100">Report</a></li>
+                <li><a href="#" class="block px-4 py-2 text-sm hover:bg-gray-100">Block</a></li>
+            </ul>
+        </div>
+        <!-- Post Actions (Like, Comment, Share) -->
+        <div class="flex items-center space-x-6 text-gray-600 mt-4">
+
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-yellow-500">
+                <i class="fas fa-star hover:text-yellow-400 cursor-pointer"></i>
+                <span>Star</span>
+            </button>
+
+
+            <!-- Reaction Button -->
+            <!-- Reaction Button -->
+            <div class=" relative">
+                <button
+                    class="reaction-button flex items-center space-x-2 text-gray-600 hover:text-blue-500 p-2 rounded-md">
+                    <i class="fas fa-smile"></i>
+                    <span>React</span>
+                </button>
+
+                <!-- Floating Emoji Picker -->
+                <div id="emoji-picker"
+                    class="emoji-picker absolute bottom-10 left-0  bg-gray-100 shadow-lg rounded-lg grid grid-cols-6 gap-2 p-2 w-56 hidden">
+                    <button class="emoji-option text-xl hover:bg-gray-200  rounded-full">
+                        😊
+                    </button>
+                    <button class="emoji-option text-xl rounded-full">
+                        😍
+                    </button>
+                    <button class="emoji-option text-xl rounded-full">
+                        👍
+                    </button>
+                    <button class="emoji-option text-xl rounded-full">
+                        ❤️
+                    </button>
+                    <button class="emoji-option text-xl rounded-full">
+                        😡
+                    </button>
+                    <button class="emoji-option text-xl rounded-full">
+                        👎
+                    </button>
+                    <!-- Add more emojis as needed -->
+                </div>
+            </div>
+
+
+
+            <!-- Comment Button -->
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-green-500">
+                <i class="fas fa-reply"></i>
+                <span>comment</span>
+            </button>
+
+            <!-- Share Button -->
+            <button class="flex items-center space-x-2 text-gray-600 hover:text-yellow-500">
+                <i class="fas fa-share"></i>
+                <span>share</span>
+            </button>
+            <p class="view-count text-sm text-gray-500">Viewed 150 times</p>
+
+            <button
+                class="absolute right-6 save-button flex items-center space-x-2 text-gray-600 hover:text-blue-500">
+                <i class="fas fa-bookmark"></i>
+                <span>Save</span>
+            </button>
+
+        </div>
+    </div>
+
+    </section>
+
+    <!-- Comment Input (Fixed) -->
+    <div class="fixed-comment-input flex items-center space-x-4 ">
+      <img src="https://i.pravatar.cc/150?img=1" alt="User Avatar" class="w-10 h-10 rounded-full">
+      <input type="text" class="w-full p-3 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm placeholder-gray-500" placeholder="Write a comment..." />
+      <button class="bg-blue-500 text-white hover:bg-blue-600 px-4 py-2 rounded-lg">
+        Post
+      </button>
+    </div>
+
+    <!-- Comments Section -->
+    <section class="comments-section bg-[#e6f0ff]  p-4 ml-20 space-y-6">
+      <h3 class="text-xl font-semibold text-gray-800">Comments</h3>
+
+      <!-- Single Comment -->
+      <div class="flex items-start space-x-4">
+        <img src="https://i.pravatar.cc/150?img=2" alt="User Avatar" class="w-10 h-10 rounded-full">
+        <div class="w-full">
+          <div class="flex justify-between items-center">
+            <h4 class="font-semibold text-gray-800">Jane Smith</h4>
+            <p class="text-sm text-gray-500">1 hour ago</p>
+          </div>
+          <p class="text-gray-700 mt-2">
+            This is a thoughtful comment. I agree with your point on the importance of user engagement in social media. Looking forward to more posts like this!
+          </p>
+          <div class="mt-3 flex items-center space-x-4 text-sm text-gray-500">
+            <button class="hover:text-blue-500 flex items-center space-x-2">
+              <i class="fas fa-thumbs-up"></i>
+              <span>Like</span>
+            </button>
+            <button class="hover:text-blue-500 flex items-center space-x-2">
+              <i class="fas fa-reply"></i>
+              <span>Reply</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="flex items-start space-x-4">
+        <img src="https://i.pravatar.cc/150?img=2" alt="User Avatar" class="w-10 h-10 rounded-full">
+        <div class="w-full">
+          <div class="flex justify-between items-center">
+            <h4 class="font-semibold text-gray-800">Jane Smith</h4>
+            <p class="text-sm text-gray-500">1 hour ago</p>
+          </div>
+          <p class="text-gray-700 mt-2">
+            This is a thoughtful comment. I agree with your point on the importance of user engagement in social media. Looking forward to more posts like this!
+          </p>
+          <div class="mt-3 flex items-center space-x-4 text-sm text-gray-500">
+            <button class="hover:text-blue-500 flex items-center space-x-2">
+              <i class="fas fa-thumbs-up"></i>
+              <span>Like</span>
+            </button>
+            <button class="hover:text-blue-500 flex items-center space-x-2">
+              <i class="fas fa-reply"></i>
+              <span>Reply</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-start space-x-4">
+        <img src="https://i.pravatar.cc/150?img=2" alt="User Avatar" class="w-10 h-10 rounded-full">
+        <div class="w-full">
+          <div class="flex justify-between items-center">
+            <h4 class="font-semibold text-gray-800">Jane Smith</h4>
+            <p class="text-sm text-gray-500">1 hour ago</p>
+          </div>
+          <p class="text-gray-700 mt-2">
+            This is a thoughtful comment. I agree with your point on the importance of user engagement in social media. Looking forward to more posts like this!
+          </p>
+          <div class="mt-3 flex items-center space-x-4 text-sm text-gray-500">
+            <button class="hover:text-blue-500 flex items-center space-x-2">
+              <i class="fas fa-thumbs-up"></i>
+              <span>Like</span>
+            </button>
+            <button class="hover:text-blue-500 flex items-center space-x-2">
+              <i class="fas fa-reply"></i>
+              <span>Reply</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-start space-x-4">
+        <img src="https://i.pravatar.cc/150?img=2" alt="User Avatar" class="w-10 h-10 rounded-full">
+        <div class="w-full">
+          <div class="flex justify-between items-center">
+            <h4 class="font-semibold text-gray-800">Jane Smith</h4>
+            <p class="text-sm text-gray-500">1 hour ago</p>
+          </div>
+          <p class="text-gray-700 mt-2">
+            This is a thoughtful comment. I agree with your point on the importance of user engagement in social media. Looking forward to more posts like this!
+          </p>
+          <div class="mt-3 flex items-center space-x-4 text-sm text-gray-500">
+            <button class="hover:text-blue-500 flex items-center space-x-2">
+              <i class="fas fa-thumbs-up"></i>
+              <span>Like</span>
+            </button>
+            <button class="hover:text-blue-500 flex items-center space-x-2">
+              <i class="fas fa-reply"></i>
+              <span>Reply</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-start space-x-4">
+        <img src="https://i.pravatar.cc/150?img=2" alt="User Avatar" class="w-10 h-10 rounded-full">
+        <div class="w-full">
+          <div class="flex justify-between items-center">
+            <h4 class="font-semibold text-gray-800">Jane Smith</h4>
+            <p class="text-sm text-gray-500">1 hour ago</p>
+          </div>
+          <p class="text-gray-700 mt-2">
+            This is a thoughtful comment. I agree with your point on the importance of user engagement in social media. Looking forward to more posts like this!
+          </p>
+          <div class="mt-3 flex items-center space-x-4 text-sm text-gray-500">
+            <button class="hover:text-blue-500 flex items-center space-x-2">
+              <i class="fas fa-thumbs-up"></i>
+              <span>Like</span>
+            </button>
+            <button class="hover:text-blue-500 flex items-center space-x-2">
+              <i class="fas fa-reply"></i>
+              <span>Reply</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-start space-x-4">
+        <img src="https://i.pravatar.cc/150?img=2" alt="User Avatar" class="w-10 h-10 rounded-full">
+        <div class="w-full">
+          <div class="flex justify-between items-center">
+            <h4 class="font-semibold text-gray-800">Jane Smith</h4>
+            <p class="text-sm text-gray-500">1 hour ago</p>
+          </div>
+          <p class="text-gray-700 mt-2">
+            This is a thoughtful comment. I agree with your point on the importance of user engagement in social media. Looking forward to more posts like this!
+          </p>
+          <div class="mt-3 flex items-center space-x-4 text-sm text-gray-500">
+            <button class="hover:text-blue-500 flex items-center space-x-2">
+              <i class="fas fa-thumbs-up"></i>
+              <span>Like</span>
+            </button>
+            <button class="hover:text-blue-500 flex items-center space-x-2">
+              <i class="fas fa-reply"></i>
+              <span>Reply</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="flex items-start space-x-4">
+        <img src="https://i.pravatar.cc/150?img=2" alt="User Avatar" class="w-10 h-10 rounded-full">
+        <div class="w-full">
+          <div class="flex justify-between items-center">
+            <h4 class="font-semibold text-gray-800">Jane Smith</h4>
+            <p class="text-sm text-gray-500">1 hour ago</p>
+          </div>
+          <p class="text-gray-700 mt-2">
+            This is a thoughtful comment. I agree with your point on the importance of user engagement in social media. Looking forward to more posts like this!
+          </p>
+          <div class="mt-3 flex items-center space-x-4 text-sm text-gray-500">
+            <button class="hover:text-blue-500 flex items-center space-x-2">
+              <i class="fas fa-thumbs-up"></i>
+              <span>Like</span>
+            </button>
+            <button class="hover:text-blue-500 flex items-center space-x-2">
+              <i class="fas fa-reply"></i>
+              <span>Reply</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-start space-x-4">
+        <img src="https://i.pravatar.cc/150?img=2" alt="User Avatar" class="w-10 h-10 rounded-full">
+        <div class="w-full">
+          <div class="flex justify-between items-center">
+            <h4 class="font-semibold text-gray-800">Jane Smith</h4>
+            <p class="text-sm text-gray-500">1 hour ago</p>
+          </div>
+          <p class="text-gray-700 mt-2">
+            This is a thoughtful comment. I agree with your point on the importance of user engagement in social media. Looking forward to more posts like this!
+          </p>
+          <div class="mt-3 flex items-center space-x-4 text-sm text-gray-500">
+            <button class="hover:text-blue-500 flex items-center space-x-2">
+              <i class="fas fa-thumbs-up"></i>
+              <span>Like</span>
+            </button>
+            <button class="hover:text-blue-500 flex items-center space-x-2">
+              <i class="fas fa-reply"></i>
+              <span>Reply</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-start space-x-4">
+        <img src="https://i.pravatar.cc/150?img=2" alt="User Avatar" class="w-10 h-10 rounded-full">
+        <div class="w-full">
+          <div class="flex justify-between items-center">
+            <h4 class="font-semibold text-gray-800">Jane Smith</h4>
+            <p class="text-sm text-gray-500">1 hour ago</p>
+          </div>
+          <p class="text-gray-700 mt-2">
+            This is a thoughtful comment. I agree with your point on the importance of user engagement in social media. Looking forward to more posts like this!
+          </p>
+          <div class="mt-3 flex items-center space-x-4 text-sm text-gray-500">
+            <button class="hover:text-blue-500 flex items-center space-x-2">
+              <i class="fas fa-thumbs-up"></i>
+              <span>Like</span>
+            </button>
+            <button class="hover:text-blue-500 flex items-center space-x-2">
+              <i class="fas fa-reply"></i>
+              <span>Reply</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-start space-x-4">
+        <img src="https://i.pravatar.cc/150?img=2" alt="User Avatar" class="w-10 h-10 rounded-full">
+        <div class="w-full">
+          <div class="flex justify-between items-center">
+            <h4 class="font-semibold text-gray-800">Jane Smith</h4>
+            <p class="text-sm text-gray-500">1 hour ago</p>
+          </div>
+          <p class="text-gray-700 mt-2">
+            This is a thoughtful comment. I agree with your point on the importance of user engagement in social media. Looking forward to more posts like this!
+          </p>
+          <div class="mt-3 flex items-center space-x-4 text-sm text-gray-500">
+            <button class="hover:text-blue-500 flex items-center space-x-2">
+              <i class="fas fa-thumbs-up"></i>
+              <span>Like</span>
+            </button>
+            <button class="hover:text-blue-500 flex items-center space-x-2">
+              <i class="fas fa-reply"></i>
+              <span>Reply</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="flex items-start space-x-4">
+        <img src="https://i.pravatar.cc/150?img=2" alt="User Avatar" class="w-10 h-10 rounded-full">
+        <div class="w-full">
+          <div class="flex justify-between items-center">
+            <h4 class="font-semibold text-gray-800">Jane Smith</h4>
+            <p class="text-sm text-gray-500">1 hour ago</p>
+          </div>
+          <p class="text-gray-700 mt-2">
+            This is a thoughtful comment. I agree with your point on the importance of user engagement in social media. Looking forward to more posts like this!
+          </p>
+          <div class="mt-3 flex items-center space-x-4 text-sm text-gray-500">
+            <button class="hover:text-blue-500 flex items-center space-x-2">
+              <i class="fas fa-thumbs-up"></i>
+              <span>Like</span>
+            </button>
+            <button class="hover:text-blue-500 flex items-center space-x-2">
+              <i class="fas fa-reply"></i>
+              <span>Reply</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-start space-x-4">
+        <img src="https://i.pravatar.cc/150?img=2" alt="User Avatar" class="w-10 h-10 rounded-full">
+        <div class="w-full">
+          <div class="flex justify-between items-center">
+            <h4 class="font-semibold text-gray-800">Jane Smith</h4>
+            <p class="text-sm text-gray-500">1 hour ago</p>
+          </div>
+          <p class="text-gray-700 mt-2">
+            This is a thoughtful comment. I agree with your point on the importance of user engagement in social media. Looking forward to more posts like this!
+          </p>
+          <div class="mt-3 flex items-center space-x-4 text-sm text-gray-500">
+            <button class="hover:text-blue-500 flex items-center space-x-2">
+              <i class="fas fa-thumbs-up"></i>
+              <span>Like</span>
+            </button>
+            <button class="hover:text-blue-500 flex items-center space-x-2">
+              <i class="fas fa-reply"></i>
+              <span>Reply</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-start space-x-4">
+        <img src="https://i.pravatar.cc/150?img=2" alt="User Avatar" class="w-10 h-10 rounded-full">
+        <div class="w-full">
+          <div class="flex justify-between items-center">
+            <h4 class="font-semibold text-gray-800">Jane Smith</h4>
+            <p class="text-sm text-gray-500">1 hour ago</p>
+          </div>
+          <p class="text-gray-700 mt-2">
+            This is a thoughtful comment. I agree with your point on the importance of user engagement in social media. Looking forward to more posts like this!
+          </p>
+          <div class="mt-3 flex items-center space-x-4 text-sm text-gray-500">
+            <button class="hover:text-blue-500 flex items-center space-x-2">
+              <i class="fas fa-thumbs-up"></i>
+              <span>Like</span>
+            </button>
+            <button class="hover:text-blue-500 flex items-center space-x-2">
+              <i class="fas fa-reply"></i>
+              <span>Reply</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-start space-x-4">
+        <img src="https://i.pravatar.cc/150?img=2" alt="User Avatar" class="w-10 h-10 rounded-full">
+        <div class="w-full">
+          <div class="flex justify-between items-center">
+            <h4 class="font-semibold text-gray-800">Jane Smith</h4>
+            <p class="text-sm text-gray-500">1 hour ago</p>
+          </div>
+          <p class="text-gray-700 mt-2">
+            This is a thoughtful comment. I agree with your point on the importance of user engagement in social media. Looking forward to more posts like this! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo optio rerum saepe, sed earum veritatis expedita adipisci voluptas quibusdam dicta ipsam ex omnis. Magni officia tempore quae natus neque dolorem dolore quo ea fugiat deleniti fuga, vel doloremque ut voluptate adipisci et accusamus! Libero eius veritatis repellat pariatur, cupiditate consequuntur beatae. Nostrum, velit! Neque, alias ipsa sit quasi facilis accusamus rerum corporis omnis delectus quisquam quia, voluptatem laudantium id quod, vero minima illo? Et deserunt, culpa consequatur a veniam, laboriosam officia odit excepturi libero quos quibusdam similique. Dolores magnam quod suscipit odio eum praesentium mollitia harum unde officiis quis, quidem, enim minima error vitae sed similique et. Deleniti, dicta laudantium tenetur aspernatur error quos? Itaque, doloremque. Consequuntur soluta mollitia exercitationem libero? Quia asperiores consectetur quidem eaque. Assumenda cum repellendus, est eius vitae ratione accusantium provident qui suscipit maiores impedit ab voluptatibus alias necessitatibus obcaecati tempore dolor, laboriosam nulla aliquid sapiente. At soluta reiciendis voluptates in sint maiores facilis necessitatibus suscipit, eveniet quasi tempora? Facere error vitae voluptates expedita deserunt, quo reiciendis velit eos adipisci eveniet atque praesentium optio quod non nulla suscipit consectetur doloribus qui. Porro vitae hic omnis reprehenderit autem alias, a eius. Ab pariatur adipisci temporibus aut in reiciendis rerum praesentium non assumenda corporis quis fugit magnam corrupti culpa itaque, ratione officia libero veniam rem sequi. Blanditiis temporibus repudiandae ea est vero quo aperiam fugit beatae excepturi debitis itaque quis hic, omnis delectus natus eaque! Laudantium, esse doloribus? Natus, beatae porro. Qui tempora vitae quas. Odit veniam, perspiciatis veritatis facilis sequi eos sint eaque dignissimos accusamus. Earum architecto reiciendis dolores, ratione nam aliquam sunt! Vitae fugiat natus quidem eligendi, optio ex pariatur, necessitatibus minima facere nam quibusdam! Totam quibusdam impedit ut tenetur modi commodi officia quisquam magni maxime. Officiis itaque vero officia dicta. Sed deleniti dolores necessitatibus ipsam.
+          </p>
+          <div class="mt-3 flex items-center space-x-4 text-sm text-gray-500">
+            <button class="hover:text-blue-500 flex items-center space-x-2">
+              <i class="fas fa-thumbs-up"></i>
+              <span>Like</span>
+            </button>
+            <button class="hover:text-blue-500 flex items-center space-x-2">
+              <i class="fas fa-reply"></i>
+              <span>Reply</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+      
+
+      <div class="flex items-start space-x-4">
+        <img src="https://i.pravatar.cc/150?img=2" alt="User Avatar" class="w-10 h-10 rounded-full">
+        <div class="w-full">
+          <div class="flex justify-between items-center">
+            <h4 class="font-semibold text-gray-800">Jane Smith</h4>
+            <p class="text-sm text-gray-500">1 hour ago</p>
+          </div>
+          <p class="text-gray-700 mt-2">
+            This is a thoughtful comment. I agree with your point on the importance of user engagement in social media. Looking forward to more posts like this!
+          </p>
+          <div class="mt-3 flex items-center space-x-4 text-sm text-gray-500">
+            <button class="hover:text-blue-500 flex items-center space-x-2">
+              <i class="fas fa-thumbs-up"></i>
+              <span>Like</span>
+            </button>
+            <button class="hover:text-blue-500 flex items-center space-x-2">
+              <i class="fas fa-reply"></i>
+              <span>Reply</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-start space-x-4">
+        <img src="https://i.pravatar.cc/150?img=2" alt="User Avatar" class="w-10 h-10 rounded-full">
+        <div class="w-full">
+          <div class="flex justify-between items-center">
+            <h4 class="font-semibold text-gray-800">Jane Smith</h4>
+            <p class="text-sm text-gray-500">1 hour ago</p>
+          </div>
+          <p class="text-gray-700 mt-2">
+            This is a thoughtful comment. I agree with your point on the importance of user engagement in social media. Looking forward to more posts like this!
+          </p>
+          <div class="mt-3 flex items-center space-x-4 text-sm text-gray-500">
+            <button class="hover:text-blue-500 flex items-center space-x-2">
+              <i class="fas fa-thumbs-up"></i>
+              <span>Like</span>
+            </button>
+            <button class="hover:text-blue-500 flex items-center space-x-2">
+              <i class="fas fa-reply"></i>
+              <span>Reply</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-start space-x-4">
+        <img src="https://i.pravatar.cc/150?img=2" alt="User Avatar" class="w-10 h-10 rounded-full">
+        <div class="w-full">
+          <div class="flex justify-between items-center">
+            <h4 class="font-semibold text-gray-800">Jane Smith</h4>
+            <p class="text-sm text-gray-500">1 hour ago</p>
+          </div>
+          <p class="text-gray-700 mt-2">
+            This is a thoughtful comment. I agree with your point on the importance of user engagement in social media. Looking forward to more posts like this!
+          </p>
+          <div class="mt-3 flex items-center space-x-4 text-sm text-gray-500">
+            <button class="hover:text-blue-500 flex items-center space-x-2">
+              <i class="fas fa-thumbs-up"></i>
+              <span>Like</span>
+            </button>
+            <button class="hover:text-blue-500 flex items-center space-x-2">
+              <i class="fas fa-reply"></i>
+              <span>Reply</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex items-start space-x-4">
+        <img src="https://i.pravatar.cc/150?img=2" alt="User Avatar" class="w-10 h-10 rounded-full">
+        <div class="w-full">
+          <div class="flex justify-between items-center">
+            <h4 class="font-semibold text-gray-800">Jane Smith</h4>
+            <p class="text-sm text-gray-500">1 hour ago</p>
+          </div>
+          <p class="text-gray-700 mt-2">
+            This is a thoughtful comment. I agree with your point on the importance of user engagement in social media. Looking forward to more posts like this! Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo optio rerum saepe, sed earum veritatis expedita adipisci voluptas quibusdam dicta ipsam ex omnis. Magni officia tempore quae natus neque dolorem dolore quo ea fugiat deleniti fuga, vel doloremque ut voluptate adipisci et accusamus! Libero eius veritatis repellat pariatur, cupiditate consequuntur beatae. Nostrum, velit! Neque, alias ipsa sit quasi facilis accusamus rerum corporis omnis delectus quisquam quia, voluptatem laudantium id quod, vero minima illo? Et deserunt, culpa consequatur a veniam, laboriosam officia odit excepturi libero quos quibusdam similique. Dolores magnam quod suscipit odio eum praesentium mollitia harum unde officiis quis, quidem, enim minima error vitae sed similique et. Deleniti, dicta laudantium tenetur aspernatur error quos? Itaque, doloremque. Consequuntur soluta mollitia exercitationem libero? Quia asperiores consectetur quidem eaque. Assumenda cum repellendus, est eius vitae ratione accusantium provident qui suscipit maiores impedit ab voluptatibus alias necessitatibus obcaecati tempore dolor, laboriosam nulla aliquid sapiente. At soluta reiciendis voluptates in sint maiores facilis necessitatibus suscipit, eveniet quasi tempora? Facere error vitae voluptates expedita deserunt, quo reiciendis velit eos adipisci eveniet atque praesentium optio quod non nulla suscipit consectetur doloribus qui. Porro vitae hic omnis reprehenderit autem alias, a eius. Ab pariatur adipisci temporibus aut in reiciendis rerum praesentium non assumenda corporis quis fugit magnam corrupti culpa itaque, ratione officia libero veniam rem sequi. Blanditiis temporibus repudiandae ea est vero quo aperiam fugit beatae excepturi debitis itaque quis hic, omnis delectus natus eaque! Laudantium, esse doloribus? Natus, beatae porro. Qui tempora vitae quas. Odit veniam, perspiciatis veritatis facilis sequi eos sint eaque dignissimos accusamus. Earum architecto reiciendis dolores, ratione nam aliquam sunt! Vitae fugiat natus quidem eligendi, optio ex pariatur, necessitatibus minima facere nam quibusdam! Totam quibusdam impedit ut tenetur modi commodi officia quisquam magni maxime. Officiis itaque vero officia dicta. Sed deleniti dolores necessitatibus ipsam.
+          </p>
+          <div class="mt-3 flex items-center space-x-4 text-sm text-gray-500">
+            <button class="hover:text-blue-500 flex items-center space-x-2">
+              <i class="fas fa-thumbs-up"></i>
+              <span>Like</span>
+            </button>
+            <button class="hover:text-blue-500 flex items-center space-x-2">
+              <i class="fas fa-reply"></i>
+              <span>Reply</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+     
+      <!-- Add more comments here -->
+
+    </section>
+
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Coding Blog</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        .hero {
+            position: relative;
+            background:#1f1b24;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+        .animated-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        .glowing-circle {
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle, rgba(0, 150, 255, 0.8), rgba(0, 150, 255, 0));
+            border-radius: 50%;
+            opacity: 0.6;
+            animation: moveCircles 10s infinite alternate ease-in-out;
+        }
+        @keyframes moveCircles {
+            0% { transform: translateY(100vh) scale(0.5); opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-[#1f1b24] text-white">
+    <header class="bg-[#1f1b24] fixed w-full top-0 z-50 p-5 border-b border-gray-800 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-3xl font-extrabold text-blue-400">My Coding Blog</h1>
+            <nav>
+                <ul class="flex items-center">
+                   <li class="mr-3 text-lg font-semibold text-blue-400 bg-gray-800 px-3 py-1 rounded-full 
+                              shadow-md border border-gray-600 transition-all duration-300 
+                               hidden">
+                      Gaurav
+                   </li>
+                   <li hidden>
+                      <a href="profile.html" class="text-white pr-4 rounded-lg flex justify-center">
+                         <img src="https://res.cloudinary.com/dppoxf3gz/image/upload/v1733378311/UserProfileImages/fu229hyaauzelv2qik2v.jpg" 
+                              alt="Profile" 
+                              class="w-12 h-12 rounded-full ring-4 ring-blue-400 shadow-lg">
+                      </a>
+                   </li>
+
+                   <li class="mr-2">
+                    <a href="login.html" class="px-4 py-2 text-white bg-[#2c2732] rounded-lg 
+                            shadow-md border border-gray-800 transition-all duration-300 
+                            hover:bg-blue-700 hover:border-blue-400">
+                       Login
+                    </a>
+                 </li>
+                 <li>
+                            <a href="signup.html" class="px-4 py-2 text-white bg-[#2c2732] rounded-lg 
+                                    shadow-md border border-gray-800 transition-all duration-300 
+                                    hover:bg-green-700 hover:border-green-400">
+                            Sign Up
+                            </a>
+                 </li>
+                </ul>
+             </nav>
+             
+             
+             
+        </div>
+    </header>
+
+    <section class="hero  shadow-lg">
+        <div class="animated-bg"></div>
+        <div>
+            <h2 class="text-5xl font-bold animate-fadeIn">Welcome to My Coding Blog</h2>
+            <p class="text-lg animate-slideUp mt-4">Explore the latest in PHP, JavaScript, and more!</p>
+        </div>
+    </section>
+
+    <main class="container mx-auto p-10">
+        <section class="grid md:grid-cols-3 gap-6 animate-fadeIn">
+            <article class="bg-[#2c2732] p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-500">
+                <h3 class="text-2xl font-bold text-blue-300">Introduction to PHP</h3>
+                <p class="text-gray-400">Learn the basics of PHP and how to get started.</p>
+                <a href="#" class="text-blue-400 mt-3 inline-block hover:underline">Read more</a>
+            </article>
+            <article class="bg-[#2c2732] p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-500">
+                <h3 class="text-2xl font-bold text-blue-300">JavaScript for Beginners</h3>
+                <p class="text-gray-400">A guide to understanding JavaScript fundamentals.</p>
+                <a href="#" class="text-blue-400 mt-3 inline-block hover:underline">Read more</a>
+            </article>
+            <article class="bg-[#2c2732] p-6 rounded-lg shadow-lg transform hover:scale-105 transition duration-500">
+                <h3 class="text-2xl font-bold text-blue-300">How to Submit Your Blog</h3>
+                <p class="text-gray-400">Learn how you can contribute to this blog.</p>
+                <a href="#" class="text-blue-400 mt-3 inline-block hover:underline">Read more</a>
+            </article>
+        </section>
+    </main>
+
+    <footer class="bg-[#1f1b24] shadow-lg py-8 text-gray-300 border-t border-gray-800">
+        <div class="container mx-auto px-6 grid md:grid-cols-3 gap-6 text-center md:text-left">
+            <!-- About Section -->
+            <div>
+                <h2 class="text-xl font-bold text-white">My Coding Blog</h2>
+                <p class="mt-2 text-gray-400">Your go-to platform for PHP, JavaScript, and coding insights.</p>
+            </div>
+    
+            <!-- Quick Links -->
+            <div>
+                <h2 class="text-xl font-bold text-white">Quick Links</h2>
+                <ul class="mt-2 space-y-2">
+                    <li><a href="#" class="hover:text-blue-400 transition duration-300">Home</a></li>
+                    <li><a href="#" class="hover:text-blue-400 transition duration-300">Blog</a></li>
+                    <li><a href="#" class="hover:text-blue-400 transition duration-300">About</a></li>
+                    <li><a href="#" class="hover:text-blue-400 transition duration-300">Contact</a></li>
+                </ul>
+            </div>
+    
+            <!-- Social Media Links -->
+            <div>
+                <h2 class="text-xl font-bold text-white">Follow Us</h2>
+                <div class="mt-2 flex justify-center md:justify-start space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-blue-500 transition duration-300">
+                        <i class="fab fa-facebook text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-500 transition duration-300">
+                        <i class="fab fa-twitter text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-500 transition duration-300">
+                        <i class="fab fa-github text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Bottom Section -->
+        <div class="mt-6 text-center border-t border-gray-700 pt-4 text-sm">
+            <p>&copy; 2025 My Coding Blog. All rights reserved.</p>
+        </div>
+    </footer>
+    
+
+    <script>
+        gsap.from("header", { duration: 1, y: -50, opacity: 0, ease: "power3.out" });
+        gsap.from(".hero h2", { duration: 1, opacity: 0, y: -20, ease: "power3.out" });
+        gsap.from(".hero p", { duration: 1, opacity: 0, y: 20, ease: "power3.out", delay: 0.5 });
+        gsap.from(".animate-fadeIn", { duration: 1, opacity: 0, stagger: 0.3, ease: "power3.out" });
+        
+        function createGlowingCircles() {
+            const bg = document.querySelector('.animated-bg');
+            for (let i = 0; i < 15; i++) {
+                let circle = document.createElement('div');
+                circle.classList.add('glowing-circle');
+                circle.style.left = `${Math.random() * 100}%`;
+                circle.style.animationDuration = `${Math.random() * 8 + 6}s`;
+                circle.style.width = `${Math.random() * 60 + 30}px`;
+                circle.style.height = circle.style.width;
+                bg.appendChild(circle);
+            }
+        }
+        createGlowingCircles();
+    </script>
+</body>
+</html>

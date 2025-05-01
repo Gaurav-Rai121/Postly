@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Signup</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: radial-gradient(circle at top left, #1e3a8a, #9333ea, #1e3a8a);
+            overflow: hidden;
+        }
+        .bubble {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            animation: float 10s infinite ease-in-out;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 0.5; }
+            50% { transform: translateY(-50px); opacity: 0.8; }
+            100% { transform: translateY(0); opacity: 0.5; }
+        }
+        .theme-dark {
+            background: radial-gradient(circle at top left, #000428, #004e92);
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col items-center justify-center theme-dark relative">
+    
+    <!-- Website Name & Logo -->
+    <div class="absolute top-6 left-6 flex items-center space-x-3">
+        <img src="../newlogo2.png" alt="Chat Logo" class="w-12 h-12">
+        <h1 class="text-white text-3xl font-bold">ChatNest</h1>
+    </div>
+    
+
+    
+    <div class="relative w-full max-w-md p-6 bg-white/10 backdrop-blur-lg rounded-xl shadow-lg border border-white/20 mt-12">
+        <h2 class="text-white text-2xl font-bold text-center ">Account Setting</h2>
+
+        <div class="px-8 mb-4 ">
+            <div class="flex border-b border-white/20">
+                <button id="personal-tab" class="tab-button w-1/2 text-center py-3 text-lg font-semibold text-purple-600 border-b-2 border-purple-600 hover:text-purple-600">
+                    Personal Account
+                </button>
+                <button id="business-tab" class="tab-button w-1/2 text-center py-3 text-lg font-semibold text-white/30 hover:text-purple-600">
+                    Business Account
+                </button>
+            </div>
+        </div>
+
+        <form action="signup.php" method="POST" class="space-y-4" id="editForm">
+            <input type="text" name="username" placeholder="Username" required class="w-full p-3 rounded-lg bg-white/20 text-white placeholder-white/60 focus:outline-none">
+            <input type="email" name="email" placeholder="Email" required class="w-full p-3 rounded-lg bg-white/20 text-white placeholder-white/60 focus:outline-none">
+            <input type="password" name="password" placeholder="Password" required class="w-full p-3 rounded-lg bg-white/20 text-white placeholder-white/60 focus:outline-none">
+            <input type="password" name="password" placeholder="Confirm Password" required class="w-full p-3 rounded-lg bg-white/20 text-white placeholder-white/60 focus:outline-none">
+            <button type="submit" class="w-full p-3 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-lg transition">Update Profile</button>
+        </form>
+        
+
+        <form id="business-account-form" class="hidden">
+
+            <div class="flex justify-center">
+                <img id="preview" src="../images/Levi Ackerman.jpeg" alt="Profile Image" class="w-40 h-40 rounded-full border-4  border-purple-500 transition-all duration-300 cursor-pointer">
+            </div>
+            <!-- Business Name -->
+            <div class="flex flex-col mb-4">
+                <label for="profile-image" class="text-white text-lg font-medium">Choose Image</label>
+                <input type="file" id="profile-image" name="profile_image" accept="image/*" class="mt-2 py-2 px-4 border-2 border-white rounded-lg bg-transparent text-white placeholder-white focus:outline-none  transition-all duration-300 cursor-pointer">
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="w-full py-3 px-6 bg-purple-600 text-white text-lg font-semibold rounded-lg shadow-xl hover:bg-indigo-600 focus:outline-none focus:ring-4 focus:ring-indigo-400 transform  ">
+                Update Profile Image
+            </button>
+        </form>
+
+    </div>
+    
+    <!-- Floating Bubbles -->
+    <script>
+        for (let i = 0; i < 10; i++) {
+            let bubble = document.createElement('div');
+            bubble.classList.add('bubble');
+            document.body.appendChild(bubble);
+            bubble.style.left = Math.random() * 100 + "vw";
+            bubble.style.top = Math.random() * 100 + "vh";
+            bubble.style.animationDuration = Math.random() * 5 + 5 + "s";
+        }
+
+          // JavaScript for switching account type
+          const personalTab = document.getElementById('personal-tab');
+        const businessTab = document.getElementById('business-tab');
+        const signupForm = document.getElementById('editForm');
+        const businessForm = document.getElementById('business-account-form');
+
+        personalTab.addEventListener('click', () => {
+            personalTab.classList.add('text-purple-600', 'border-b-2', 'border-purple-600');
+            personalTab.classList.remove('text-white/30');
+            businessTab.classList.remove('text-purple-600', 'border-b-2', 'border-purple-600');
+            businessTab.classList.add('text-white/30');
+            businessForm.classList.add('hidden');
+            signupForm.classList.remove('hidden');
+        });
+
+        businessTab.addEventListener('click', () => {
+            businessTab.classList.add('text-purple-600', 'border-b-2', 'border-purple-600');
+            businessTab.classList.remove('text-white/30');
+            personalTab.classList.remove('text-purple-600', 'border-b-2', 'border-purple-600');
+            personalTab.classList.add('text-white/30');
+            signupForm.classList.add('hidden');
+            businessForm.classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>

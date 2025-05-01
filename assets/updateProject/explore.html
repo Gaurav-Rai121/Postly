@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | Social Media</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-gray-100 text-gray-900">
+
+    <!-- Sidebar Navigation -->
+    <nav class="fixed top-0 left-0 h-full w-64 bg-gradient-to-b from-blue-500 to-purple-600 p-4 shadow-lg">
+        <div class="flex justify-center mb-8">
+            <a href="#">
+                <img src="newlogo2.png" alt="Logo" class="w-12 h-12">
+            </a>
+        </div>
+        <div class="space-y-6">
+            <a href="#" class="text-white hover:bg-blue-600 p-3 rounded-md flex items-center space-x-2">
+                <i class="fas fa-home"></i><span>Home</span>
+            </a>
+            <a href="#" class="text-white hover:bg-blue-600 p-3 rounded-md flex items-center space-x-2">
+                <i class="fas fa-search"></i><span>Explore</span>
+            </a>
+            <a href="profile.html" class="text-white hover:bg-blue-600 p-3 rounded-md flex items-center space-x-2">
+                <i class="fas fa-user"></i><span>Profile</span>
+            </a>
+            <a href="settings.html" class="text-white hover:bg-blue-600 p-3 rounded-md flex items-center space-x-2">
+                <i class="fas fa-cogs"></i><span>Settings</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="ml-64 p-8">
+        <h1 class="text-4xl font-semibold text-gray-900 mb-6">Settings</h1>
+
+        <!-- Profile Settings -->
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Profile Settings</h2>
+            <div class="flex items-center space-x-6">
+                <div class="flex-shrink-0">
+                    <img src="https://res.cloudinary.com/dppoxf3gz/image/upload/v1733378311/UserProfileImages/fu229hyaauzelv2qik2v.jpg" alt="Profile"
+                        class="w-24 h-24 rounded-full object-cover">
+                </div>
+                <div class="space-y-4">
+                    <div class="flex justify-between">
+                        <span class="text-sm text-gray-600">Username</span>
+                        <span class="text-sm text-gray-800">john_doe</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-sm text-gray-600">Email Address</span>
+                        <span class="text-sm text-gray-800">john.doe@example.com</span>
+                    </div>
+                    <button class="text-blue-500 hover:underline">Change Profile Picture</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Privacy Settings -->
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Privacy Settings</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <div class="flex justify-between">
+                        <span class="text-sm text-gray-600">Profile Visibility</span>
+                        <span class="text-sm text-gray-800">Public</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-sm text-gray-600">Searchable by Others</span>
+                        <span class="text-sm text-gray-800">Enabled</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-sm text-gray-600">Two-Factor Authentication</span>
+                        <span class="text-sm text-green-500">Enabled</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Notification Settings -->
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Notification Settings</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <div class="flex justify-between">
+                        <span class="text-sm text-gray-600">Email Notifications</span>
+                        <span class="text-sm text-gray-800">Enabled</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-sm text-gray-600">Push Notifications</span>
+                        <span class="text-sm text-gray-800">Enabled</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-sm text-gray-600">SMS Notifications</span>
+                        <span class="text-sm text-gray-800">Disabled</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Account Settings -->
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Account Settings</h2>
+            <div class="space-y-4">
+                <div class="flex justify-between">
+                    <span class="text-sm text-gray-600">Change Password</span>
+                    <button class="text-blue-500 hover:underline">Change</button>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-sm text-gray-600">Deactivate Account</span>
+                    <button class="text-yellow-500 hover:underline">Deactivate</button>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-sm text-gray-600">Delete Account</span>
+                    <button class="text-red-500 hover:underline">Delete</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Security Settings -->
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Security Settings</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-4">
+                    <div class="flex justify-between">
+                        <span class="text-sm text-gray-600">Security Question</span>
+                        <button class="text-blue-500 hover:underline">Change</button>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-sm text-gray-600">Login History</span>
+                        <button class="text-blue-500 hover:underline">View</button>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-sm text-gray-600">Connected Devices</span>
+                        <button class="text-blue-500 hover:underline">Manage</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Language and Theme Settings -->
+        <section class="bg-white p-6 rounded-lg shadow-md mb-8">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">General Settings</h2>
+            <div class="space-y-4">
+                <div class="flex justify-between">
+                    <span class="text-sm text-gray-600">Language</span>
+                    <span class="text-sm text-gray-800">English</span>
+                </div>
+                <div class="flex justify-between">
+                    <span class="text-sm text-gray-600">Theme</span>
+                    <span class="text-sm text-gray-800">Light</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+
+</html>

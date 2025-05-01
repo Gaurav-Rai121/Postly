@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premium Social Media FAB</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <style>
+    /* Base animations */
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    
+    @keyframes floatAnimation {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    
+    @keyframes shine {
+      0% { background-position: -100px; }
+      100% { background-position: 200px; }
+    }
+    
+    @keyframes rotate {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    /* Base effects */
+    .slide-up {
+      animation: slideUp 0.4s ease-out forwards;
+    }
+    
+    .pulse-effect {
+      animation: pulse 2s infinite ease-in-out;
+    }
+    
+    .float-effect {
+      animation: floatAnimation 3s infinite ease-in-out;
+    }
+    
+    /* Glassmorphism */
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .glass-dark {
+      background: rgba(30, 30, 30, 0.8);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Advanced hover effects */
+    .shine-effect {
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .shine-effect::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.3) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: rotate(30deg);
+      transition: 0.5s;
+      opacity: 0;
+    }
+    
+    .shine-effect:hover::after {
+      opacity: 1;
+      animation: shine 1s forwards;
+    }
+    
+    /* 3D Effect for buttons */
+    .btn-3d {
+      position: relative;
+      transition: all 0.2s ease;
+      transform-style: preserve-3d;
+    }
+    
+    .btn-3d::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      bottom: -4px;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: inherit;
+      transform: translateZ(-1px);
+    }
+    
+    .btn-3d:active {
+      transform: translateY(2px);
+    }
+    
+    .btn-3d:active::before {
+      bottom: -2px;
+    }
+    
+    /* Custom scrollbar */
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 5px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: rgba(241, 241, 241, 0.3);
+      border-radius: 10px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(136, 136, 136, 0.5);
+      border-radius: 10px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: rgba(85, 85, 85, 0.7);
+    }
+    
+    /* Neon glow effect */
+    .neon-glow {
+      box-shadow: 0 0 5px #6366F1, 
+                  0 0 15px #6366F1, 
+                  0 0 20px #6366F1;
+    }
+    
+    /* Speech bubble for tooltip */
+    .speech-bubble {
+      position: relative;
+    }
+    
+    .speech-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      right: 20px;
+      border-width: 8px 8px 0;
+      border-style: solid;
+      border-color: white transparent;
+    }
+    
+    /* Hover grow effect */
+    .hover-grow {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .hover-grow:hover {
+      transform: scale(1.03);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+      z-index: 1;
+    }
+    
+    /* Theme toggle */
+    .theme-toggle {
+      transition: all 0.3s ease;
+    }
+    
+    /* Neumorphism effect */
+    .neumorphic {
+      box-shadow: 
+        8px 8px 16px rgba(0, 0, 0, 0.1),
+        -8px -8px 16px rgba(255, 255, 255, 0.7);
+    }
+    
+    .neumorphic-dark {
+      box-shadow: 
+        8px 8px 16px rgba(0, 0, 0, 0.4),
+        -8px -8px 16px rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Emoji reactions */
+    .emoji-reaction {
+      transition: transform 0.3s ease;
+    }
+    
+    .emoji-reaction:hover {
+      transform: scale(1.2);
+    }
+    
+    /* Dark mode styles */
+    .dark-mode {
+      background-color: #121212;
+      color: #e4e4e4;
+    }
+    
+    /* Gradient text */
+    .gradient-text {
+      background: linear-gradient(to right, #6366F1, #8B5CF6, #EC4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    /* Flip card effect */
+    .flip-card {
+      perspective: 1000px;
+    }
+    
+    .flip-card-inner {
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+    
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+    
+    .flip-card-front, .flip-card-back {
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+    }
+    
+    .flip-card-back {
+      transform: rotateY(180deg);
+    }
+    
+    /* Frosty blur */
+    .frosty {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+    }
+    
+    /* Wave animation for loading */
+    @keyframes wave {
+      0%, 100% { transform: translateY(0); }
+      25% { transform: translateY(-5px); }
+      75% { transform: translateY(5px); }
+    }
+    
+    .wave-animation > * {
+      animation: wave 1.5s infinite;
+    }
+    
+    .wave-animation > *:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+    
+    .wave-animation > *:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+    
+    .wave-animation > *:nth-child(4) {
+      animation-delay: 0.6s;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 h-screen relative overflow-hidden" id="appBody">
+  <!-- Background gradient circles -->
+  <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10">
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 rounded-full bg-purple-200 filter blur-3xl opacity-20"></div>
+    <div class="absolute bottom-1/3 right-1/3 w-96 h-96 rounded-full bg-blue-200 filter blur-3xl opacity-20"></div>
+    <div class="absolute top-2/3 left-1/2 w-64 h-64 rounded-full bg-pink-200 filter blur-3xl opacity-20"></div>
+  </div>
+
+  <!-- Theme Toggle Button -->
+  <div id="themeToggle" class="fixed top-4 right-4 w-10 h-10 rounded-full bg-white dark:bg-gray-800 flex items-center justify-center shadow-lg cursor-pointer theme-toggle z-50">
+    <i class="fas fa-sun text-yellow-500 dark:hidden"></i>
+    <i class="fas fa-moon text-blue-300 hidden dark:block"></i>
+  </div>
+
+  <!-- Main FAB Button -->
+  <div id="fabButtonContainer" class="fixed bottom-6 right-6 z-50">
+    <!-- Small quick actions that appear on hover -->
+    <div class="absolute bottom-16 right-0 flex flex-col items-end space-y-3 hidden" id="quickActions">
+      <div class="flex items-center">
+        <span class="mr-2 py-1 px-3 rounded-lg bg-white shadow-md text-sm">Post Poll</span>
+        <div class="w-10 h-10 rounded-full bg-yellow-500 flex items-center justify-center text-white shadow-lg btn-3d cursor-pointer">
+          <i class="fas fa-chart-pie"></i>
+        </div>
+      </div>
+      <div class="flex items-center">
+        <span class="mr-2 py-1 px-3 rounded-lg bg-white shadow-md text-sm">Share Story</span>
+        <div class="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center text-white shadow-lg btn-3d cursor-pointer">
+          <i class="fas fa-book-open"></i>
+        </div>
+      </div>
+      <div class="flex items-center">
+        <span class="mr-2 py-1 px-3 rounded-lg bg-white shadow-md text-sm">Go Live</span>
+        <div class="w-10 h-10 rounded-full bg-red-500 flex items-center justify-center text-white shadow-lg btn-3d cursor-pointer">
+          <i class="fas fa-broadcast-tower"></i>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Main FAB Button with advanced effects -->
+    <div id="fabButton" 
+         class="h-16 w-16 bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 rounded-full flex items-center justify-center text-white cursor-pointer transform transition-all duration-300 hover:scale-110 active:scale-95 shadow-lg pulse-effect">
+      <!-- Animated pencil icon -->
+      <div class="relative">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M13.586 3.586a2 2 0 112.828 2.828l-.793.793-2.828-2.828.793-.793zM11.379 5.793L3 14.172V17h2.828l8.38-8.379-2.83-2.828z" />
+        </svg>
+        <!-- Small sparkle effect -->
+        <div class="absolute -top-1 -right-1 w-3 h-3 bg-yellow-300 rounded-full animate-ping"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Enhanced Dialog Box (Hidden by default) -->
+  <div id="postDialog" 
+       class="fixed bottom-24 right-6 w-80 glass-effect dark:glass-dark rounded-xl py-4 px-4 hidden shadow-xl slide-up z-40 custom-scrollbar max-h-96 overflow-y-auto">
+    
+    <!-- Dialog Header with Tabs -->
+    <div class="flex justify-between items-center mb-4">
+      <h3 class="font-bold text-gray-800 dark:text-gray-100 text-lg gradient-text">Create Content</h3>
+      <div id="closeDialog" class="w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 cursor-pointer transition-colors">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 dark:text-gray-300" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" />
+        </svg>
+      </div>
+    </div>
+    
+    <!-- Tabs navigation -->
+    <div class="flex mb-4 bg-gray-100 dark:bg-gray-800 rounded-lg p-1">
+      <div class="tab active w-1/2 py-2 text-center cursor-pointer text-indigo-600 dark:text-indigo-400 font-medium bg-white dark:bg-gray-700 rounded-md shadow-sm" data-tab="posts">Posts</div>
+      <div class="tab w-1/2 py-2 text-center cursor-pointer text-gray-600 dark:text-gray-300 font-medium" data-tab="stories">Stories</div>
+    </div>
+    
+    <!-- Posts Tab Content -->
+    <div id="postsTab" class="tab-content">
+      <!-- Text Post Option with enhanced UI -->
+      <div class="hover-grow rounded-xl mb-3 bg-white dark:bg-gray-800 shadow-sm" onclick="createTextPost()">
+        <div class="flex items-center p-3 cursor-pointer">
+          <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center mr-4 shadow-md shine-effect">
+            <i class="fas fa-pencil-alt text-white text-lg"></i>
+          </div>
+          <div>
+            <span class="text-gray-800 dark:text-gray-100 font-medium text-lg">Text Post</span>
+            <p class="text-gray-500 dark:text-gray-400 text-sm">Share your thoughts</p>
+          </div>
+          <div class="ml-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+            </svg>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Image Post Option with flip card effect -->
+      <div class="flip-card hover-grow rounded-xl mb-3" onclick="createImagePost()">
+        <div class="flip-card-inner h-full w-full">
+          <div class="flip-card-front rounded-xl bg-white dark:bg-gray-800 shadow-sm">
+            <div class="flex items-center p-3 cursor-pointer">
+              <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center mr-4 shadow-md shine-effect">
+                <i class="fas fa-image text-white text-lg"></i>
+              </div>
+              <div>
+                <span class="text-gray-800 dark:text-gray-100 font-medium text-lg">Image Post</span>
+                <p class="text-gray-500 dark:text-gray-400 text-sm">Share your photos</p>
+              </div>
+              <div class="ml-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card-back rounded-xl bg-white dark:bg-gray-800 shadow-sm absolute top-0 left-0 w-full h-full">
+            <div class="flex flex-col items-center justify-center h-full p-3">
+              <i class="fas fa-camera-retro text-3xl text-green-500 mb-2"></i>
+              <p class="text-gray-800 dark:text-gray-100 text-center text-sm">Upload photos from your gallery or take a new one</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Video Post Option with enhanced UI -->
+      <div class="hover-grow rounded-xl mb-3 bg-white dark:bg-gray-800 shadow-sm" onclick="createVideoPost()">
+        <div class="flex items-center p-3 cursor-pointer">
+          <div class="w-12 h-12 rounded-full bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center mr-4 shadow-md shine-effect">
+            <i class="fas fa-video text-white text-lg"></i>
+          </div>
+          <div>
+            <span class="text-gray-800 dark:text-gray-100 font-medium text-lg">Video Post</span>
+            <p class="text-gray-500 dark:text-gray-400 text-sm">Share your videos</p>
+          </div>
+          <div class="ml-auto">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+              <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+            </svg>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Poll Post Option -->
+      <div class="hover-grow rounded-xl bg-white dark:bg-gray-800 shadow-sm" onclick="createPollPost()">
+        <div class="flex items-center p-3 cursor-pointer">
+          <div class="w-12 h-12 rounded-full bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center mr-4 shadow-md shine-effect">
+            <i class="fas fa-poll-h text-white text-lg"></i>
+          </div>
+          <div>
+            <span class="text-gray-800 dark:text-gray-100 font-medium text-lg">Poll Post</span>
+            <p class="text-gray-500 dark:text-gray-400 text-sm">Ask the community</p>
+          </div>
+          <div class="ml-auto">
+            <div class="px-2 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-700 dark:text-yellow-300 text-xs rounded-full">
+              New!
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Stories Tab Content (hidden by default) -->
+    <div id="storiesTab" class="tab-content hidden">
+      <!-- Story types -->
+      <div class="grid grid-cols-2 gap-3">
+        <div class="hover-grow rounded-xl p-4 cursor-pointer bg-gradient-to-br from-blue-400 to-indigo-600 text-white flex flex-col items-center justify-center">
+          <i class="fas fa-images text-2xl mb-2"></i>
+          <span class="font-medium">Photo Story</span>
+        </div>
+        <div class="hover-grow rounded-xl p-4 cursor-pointer bg-gradient-to-br from-red-400 to-pink-600 text-white flex flex-col items-center justify-center">
+          <i class="fas fa-video text-2xl mb-2"></i>
+          <span class="font-medium">Video Story</span>
+        </div>
+        <div class="hover-grow rounded-xl p-4 cursor-pointer bg-gradient-to-br from-green-400 to-teal-600 text-white flex flex-col items-center justify-center">
+          <i class="fas fa-font text-2xl mb-2"></i>
+          <span class="font-medium">Text Story</span>
+        </div>
+        <div class="hover-grow rounded-xl p-4 cursor-pointer bg-gradient-to-br from-yellow-400 to-orange-600 text-white flex flex-col items-center justify-center">
+          <i class="fas fa-music text-2xl mb-2"></i>
+          <span class="font-medium">Music Story</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Quick Post Shortcuts with reactions -->
+    <div class="mt-6 pt-4 border-t border-gray-200 dark:border-gray-700">
+      <div class="flex justify-between items-center mb-3">
+        <span class="text-sm text-gray-500 dark:text-gray-400">Quick Actions</span>
+        <span class="text-xs text-indigo-500 dark:text-indigo-400 cursor-pointer">View All</span>
+      </div>
+      <div class="flex justify-between px-1">
+        <div class="flex flex-col items-center">
+          <div class="w-12 h-12 rounded-full bg-pink-100 dark:bg-pink-900 flex items-center justify-center cursor-pointer hover:bg-pink-200 dark:hover:bg-pink-800 transition-colors emoji-reaction" title="Post Mood">
+            <i class="fas fa-smile-beam text-pink-600 dark:text-pink-400"></i>
+          </div>
+          <span class="text-xs text-gray-500 dark:text-gray-400 mt-1">Mood</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <div class="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center cursor-pointer hover:bg-blue-200 dark:hover:bg-blue-800 transition-colors emoji-reaction" title="Check In">
+            <i class="fas fa-map-marker-alt text-blue-600 dark:text-blue-400"></i>
+          </div>
+          <span class="text-xs text-gray-500 dark:text-gray-400 mt-1">Check In</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <div class="w-12 h-12 rounded-full bg-green-100 dark:bg-green-900 flex items-center justify-center cursor-pointer hover:bg-green-200 dark:hover:bg-green-800 transition-colors emoji-reaction" title="Tag Friends">
+            <i class="fas fa-user-tag text-green-600 dark:text-green-400"></i>
+          </div>
+          <span class="text-xs text-gray-500 dark:text-gray-400 mt-1">Tag</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <div class="w-12 h-12 rounded-full bg-purple-100 dark:bg-purple-900 flex items-center justify-center cursor-pointer hover:bg-purple-200 dark:hover:bg-purple-800 transition-colors emoji-reaction" title="More Options">
+            <i class="fas fa-ellipsis-h text-purple-600 dark:text-purple-400"></i>
+          </div>
+          <span class="text-xs text-gray-500 dark:text-gray-400 mt-1">More</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Loading indicator (normally hidden) -->
+    <div id="loadingIndicator" class="hidden py-3 flex justify-center items-center wave-animation">
+      <div class="w-2 h-2 bg-indigo-600 dark:bg-indigo-400 rounded-full mx-1"></div>
+      <div class="w-2 h-2 bg-indigo-600 dark:bg-indigo-400 rounded-full mx-1"></div>
+      <div class="w-2 h-2 bg-indigo-600 dark:bg-indigo-400 rounded-full mx-1"></div>
+      <div class="w-2 h-2 bg-indigo-600 dark:bg-indigo-400 rounded-full mx-1"></div>
+    </div>
+  </div>
+
+  <!-- Notification toast (hidden by default) -->
+  <div id="notificationToast" class="fixed top-4 left-1/2 transform -translate-x-1/2 py-2 px-4 bg-white dark:bg-gray-800 rounded-lg shadow-lg hidden slide-up speech-bubble z-50">
+    <div class="flex items-center">
+      <div class="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center mr-3">
+        <i class="fas fa-check text-white text-sm"></i>
+      </div>
+      <div>
+        <span class="text-gray-800 dark:text-gray-100" id="toastMessage">Post created successfully!</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Main variables
+    const fabButton = document.getElementById('fabButton');
+    const fabButtonContainer = document.getElementById('fabButtonContainer');
+    const quickActions = document.getElementById('quickActions');
+    const postDialog = document.getElementById('postDialog');
+    const closeDialog = document.getElementById('closeDialog');
+    const loadingIndicator = document.getElementById('loadingIndicator');
+    const notificationToast = document.getElementById('notificationToast');
+    const toastMessage = document.getElementById('toastMessage');
+    const themeToggle = document.getElementById('themeToggle');
+    const appBody = document.getElementById('appBody');
+    let isDialogOpen = false;
+    let isDarkMode = false;
+
+    // Tab functionality
+    const tabs = document.querySelectorAll('.tab');
+    const tabContents = document.querySelectorAll('.tab-content');
+    
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const targetTab = tab.getAttribute('data-tab');
+        
+        // Update active tab
+        tabs.forEach(t => t.classList.remove('active', 'bg-white', 'dark:bg-gray-700', 'text-indigo-600', 'dark:text-indigo-400', 'shadow-sm'));
+        tabs.forEach(t => t.classList.add('text-gray-600', 'dark:text-gray-300'));
+        tab.classList.add('active', 'bg-white', 'dark:bg-gray-700', 'text-indigo-600', 'dark:text-indigo-400', 'shadow-sm');
+        tab.classList.remove('text-gray-600', 'dark:text-gray-300');
+        
+        // Show relevant content
+        tabContents.forEach(content => {
+          content.classList.add('hidden');
+        });
+        document.getElementById(targetTab + 'Tab').classList.remove('hidden');
+      });
+    });
+
+    // Show/hide quick actions on hover for desktop
+    fabButtonContainer.addEventListener('mouseenter', () => {
+      quickActions.classList.remove('hidden');
+    });
+    
+    fabButtonContainer.addEventListener('mouseleave', () => {
+      quickActions.classList.add('hidden');
+    });
+
+    // Show/hide dialog on fab button click
+    fabButton.addEventListener('click', () => {
+      if (!isDialogOpen) {
+        postDialog.classList.remove('hidden');
+        isDialogOpen = true;
+      } else {
+        postDialog.classList.add('hidden');
+        isDialogOpen = false;
+      }
+    });
+
+    // Close dialog with X button
+    closeDialog.addEventListener('click', () => {
+      postDialog.classList.add('hidden');
+      isDialogOpen = false;
+    });
+
+    // Close dialog when clicking outside
+    document.addEventListener('click', (event) => {
+      if (isDialogOpen && 
+          !postDialog.contains(event.target) && 
+          !fabButton.contains(event.target) &&
+          !quickActions.contains(event.target)) {
+        postDialog.classList.add('hidden');
+        isDialogOpen = false;
+      }
+    });
+
+    // Theme toggle
+    themeToggle.addEventListener('click', () => {
+      isDarkMode = !isDarkMode;
+      if (isDarkMode) {
+        appBody.classList.add('dark-mode');
+        document.querySelectorAll('.fa-sun').forEach(el => el.classList.add('hidden'));
+        document.querySelectorAll('.fa-moon').forEach(el => el.classList.remove('hidden'));
+      } else {
+        appBody.classList.remove('dark-mode');
+        document.querySelectorAll('.fa-sun').forEach(el => el.classList.remove('hidden'));
+        document.querySelectorAll('.fa-moon').forEach(el => el.classList.add('hidden'));
+      }
+    });
+
+    // Show loading and toast notification function
+    function showLoadingAndNotify(message, action) {
+      // Show loading
+      loadingIndicator.classList.remove('hidden');
+      
+      // Hide dialog
+      postDialog.classList.add('hidden');
+      isDialogOpen = false;
+      
+      // After "loading" complete, show notification
+      setTimeout(() => {
+        loadingIndicator.classList.add('hidden');
+        toastMessage.textContent = message;
+        notificationToast.classList.remove('hidden');
+        
+        // Auto-hide notification after 3 seconds
+        setTimeout(() => {
+          notificationToast.classList.add('hidden');
+          
+          // Call any callback function if provided
+          if (action) action();
+        }, 3000);
+      }, 1500);
+    }
+
+    // Post creation functions
+    function createTextPost() {
+      console.log('Creating text post...');
+      showLoadingAndNotify('Text post created successfully!');
+    }
+
+    function createImagePost() {
+      console.log('Creating image post...');
+      showLoadingAndNotify('Image post created successfully!');
+    }
+
+    function createVideoPost() {
+      console.log('Creating video post...');
+      showLoadingAndNotify('Video post created successfully!');
+    }
+
+    function createPollPost() {
+      console.log('Creating poll post...');
+      showLoadingAndNotify('Poll post created successfully!');
+    }
+
+    // Mobile touch handling for quick actions
+    let touchStartY = 0;
+    let touchEndY = 0;
+    
+    fabButton.addEventListener('touchstart', (e) => {
+      touchStartY = e.changedTouches[0].screenY;
+    });
+    
+    fabButton.addEventListener('touchend', (e) => {
+      touchEndY = e.changedTouches[0].screenY;
+      if (touchStartY - touchEndY > 50) { // Swipe up
+        quickActions.classList.remove('hidden');
+        setTimeout(() => {
+          quickActions.classList.add('hidden');
+        }, 3000);
+      }
+    });
+
+    // Add ripple effect to buttons
+    function createRipple(event) {
+      const button = event.currentTarget;
+      
+      const circle = document.createElement("span");
+      const diameter = Math.max(button.clientWidth, button.clientHeight);
+      const radius = diameter / 2;
+      
+      circle.style.width = circle.style.height = `${diameter}px`;
+      circle.style.left = `${event.clientX - button.getBoundingClientRect().left - radius}px`;
+      circle.style.top = `${event.clientY - button.getBoundingClientRect().top - radius}px`;
+      circle.classList.add("ripple");
+      
+      const ripple = button.getElementsByClassName("ripple")[0];
+      
+      if (ripple) {
+        ripple.remove();
+      }
+      
+      button.appendChild(circle);
+    }
+    
+    // Apply ripple effect to all action buttons
+    const buttons = document.querySelectorAll('.hover-grow');
+    buttons.forEach(button => {
+      button.addEventListener('click', createRipple);
+    });
+
+    // Add CSS for ripple effect
+    const style = document.createElement('style');
+    style.textContent = `
+      .ripple {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        transform: scale(0);
+        animation: ripple-animation 0.6s linear;
+        pointer-events: none;
+      }
+      
+      @keyframes ripple-animation {
+        to {
+          transform: scale(4);
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Post type preferences
+    let userPreferences = {
+      favoritePostType: 'text',
+      recentPostTypes: ['image', 'text', 'video']
+    };
+
+    // Preload resources function
+    function preloadResources() {
+      // This would normally preload images or other resources
+      console.log('Preloading resources for better performance...');
+    }
+    
+    // Initialize with preloaded resources
+    preloadResources();
+
+    // Accessibility improvements
+    document.querySelectorAll('[role="button"]').forEach(button => {
+      if (!button.getAttribute('tabindex')) {
+        button.setAttribute('tabindex', '0');
+      }
+      
+      button.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          button.click();
+        }
+      });
+    });
+
+    // Add aria labels for screen readers
+    fabButton.setAttribute('aria-label', 'Create new post');
+    closeDialog.setAttribute('aria-label', 'Close dialog');
+    
+    // Voice command support (placeholder - would require Web Speech API integration)
+    function setupVoiceCommands() {
+      console.log('Voice command support would be initialized here');
+      // Implementation would go here if using the Web Speech API
+    }
+
+    // Check for device capabilities and adjust UI accordingly
+    function checkDeviceCapabilities() {
+      // Check if device supports touch
+      const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+      
+      // Adjust UI for touch devices
+      if (isTouchDevice) {
+        document.querySelectorAll('.hover-grow').forEach(el => {
+          el.classList.add('touch-optimized');
+        });
+      }
+      
+      // Check for reduced motion preference
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.querySelectorAll('.pulse-effect, .float-effect, .wave-animation').forEach(el => {
+          el.style.animation = 'none';
+        });
+      }
+      
+      // Check for dark mode preference
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        isDarkMode = true;
+        appBody.classList.add('dark-mode');
+      }
+    }
+    
+    // Run device capability check on load
+    checkDeviceCapabilities();
+
+    // Demo animation for first-time users
+    function showDemoAnimation() {
+      // Check if this is first visit
+      if (!localStorage.getItem('hasVisitedBefore')) {
+        // Show demo animation
+        fabButton.classList.add('attention-animation');
+        
+        setTimeout(() => {
+          fabButton.classList.remove('attention-animation');
+          localStorage.setItem('hasVisitedBefore', 'true');
+        }, 3000);
+      }
+    }
+    
+    // Run demo animation with slight delay
+    setTimeout(showDemoAnimation, 1000);
+
+    // Add Easter egg
+    let clickCount = 0;
+    fabButton.addEventListener('click', () => {
+      clickCount++;
+      
+      if (clickCount === 10) {
+        document.body.style.background = 'linear-gradient(45deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%)';
+        fabButton.innerHTML = '<i class="fas fa-trophy"></i>';
+        
+        toastMessage.textContent = 'You found the Easter egg! 🎉';
+        notificationToast.classList.remove('hidden');
+        
+        setTimeout(() => {
+          notificationToast.classList.add('hidden');
+        }, 3000);
+        
+        clickCount = 0;
+      }
+    });
+
+    // Performance monitoring (placeholder)
+    function logPerformance() {
+      console.log('UI performance metrics would be logged here');
+    }
+    
+    // Log performance after page fully loads
+    window.addEventListener('load', logPerformance);
+  </script>
+</body>
+</html>

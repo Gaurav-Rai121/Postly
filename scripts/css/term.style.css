@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    
+body {
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+}
+
+.bg-gradient-custom {
+  background: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #EC4899 100%);
+}
+
+.text-gradient {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, #6366F1, #EC4899);
+}
+
+.bg-gradient-soft {
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%);
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+  100% { transform: translateY(0px); }
+}
+
+.shadow-custom {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+.sticky-header {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.terms-card {
+  transition: all 0.3s ease;
+  border-left: 4px solid transparent;
+}
+
+.terms-card:hover {
+  border-left: 4px solid #6366F1;
+  transform: translateX(5px);
+}
+
+.active-section {
+  border-left: 4px solid #6366F1;
+  background-color: rgba(99, 102, 241, 0.05);
+}
+
+.terms-header {
+  background-image: url("/api/placeholder/1600/400");
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  overflow: hidden;
+}
+
+.terms-header::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.9) 0%, rgba(139, 92, 246, 0.85) 50%, rgba(236, 72, 153, 0.8) 100%);
+  z-index: 1;
+}
+
+.floating-shapes .shape {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 0;
+  opacity: 0.5;
+  filter: blur(40px);
+  animation: float 10s infinite ease-in-out alternate;
+}
+
+.progress-container {
+  width: 100%;
+  height: 4px;
+  background: transparent;
+  position: fixed;
+  top: 72px;
+  left: 0;
+  z-index: 999;
+}
+
+.progress-bar {
+  height: 4px;
+  background: linear-gradient(to right, #6366F1, #EC4899);
+  width: 0%;
+}
+
+.card-hover-effect {
+  transition: all 0.3s ease;
+}
+
+.card-hover-effect:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.highlight-box {
+  position: relative;
+  overflow: hidden;
+}
+
+.highlight-box::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #6366F1, #EC4899, #6366F1);
+  z-index: -1;
+  animation: animate 4s linear infinite;
+  border-radius: 1rem;
+}
+
+@keyframes animate {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 300% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+.expandable-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.expandable-trigger.active + .expandable-content {
+  max-height: 1000px;
+}
+
+.expandable-trigger .icon-plus {
+  display: block;
+}
+
+.expandable-trigger .icon-minus {
+  display: none;
+}
+
+.expandable-trigger.active .icon-plus {
+  display: none;
+}
+
+.expandable-trigger.active .icon-minus {
+  display: block;
+}
+
+/* Custom Scrollbar */
+.terms-nav-scroll::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+.terms-nav-scroll::-webkit-scrollbar-track {
+  background: rgba(99, 102, 241, 0.1);
+  border-radius: 4px;
+}
+
+.terms-nav-scroll::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.5);
+  border-radius: 4px;
+}
+
+/* Pulsing Effect */
+.pulse-effect {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(99, 102, 241, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(99, 102, 241, 0);
+  }
+}
+
+/* Timeline Style */
+.timeline-container {
+  position: relative;
+}
+
+.timeline-container::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  background-color: rgba(99, 102, 241, 0.2);
+  top: 0;
+  bottom: 0;
+  left: 24px;
+  margin-left: -1px;
+}
+
+.timeline-item {
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 20px;
+  z-index: 1;
+}
+
+.timeline-dot {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  left: 15px;
+  background-color: white;
+  border: 2px solid #6366F1;
+  border-radius: 50%;
+  z-index: 1;
+}

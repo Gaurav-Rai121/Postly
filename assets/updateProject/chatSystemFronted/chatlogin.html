@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background: radial-gradient(circle at top left, #1e3a8a, #9333ea, #1e3a8a);
+            overflow: hidden;
+        }
+        .bubble {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            animation: float 10s infinite ease-in-out;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 0.5; }
+            50% { transform: translateY(-50px); opacity: 0.8; }
+            100% { transform: translateY(0); opacity: 0.5; }
+        }
+
+    </style>
+</head>
+<body class="h-screen flex flex-col items-center justify-center theme-dark relative">
+    
+    <!-- Website Name & Logo -->
+    <div class="absolute top-6 left-6 flex items-center space-x-3">
+        <img src="newlogo2.png" alt="Chat Logo" class="w-12 h-12">
+        <h1 class="text-white text-3xl font-bold">ChatNest</h1>
+    </div>
+    
+    <div class="relative w-full max-w-md p-6 bg-white/10 backdrop-blur-lg rounded-xl shadow-lg border border-white/20 mt-12">
+        <h2 class="text-white text-2xl font-bold text-center mb-4">Welcome Back</h2>
+        <form action="chathome.html" method="POST" class="space-y-4">
+           
+            <input type="text" name="text" placeholder="Email or Username" required class="w-full p-3 rounded-lg bg-white/20 text-white placeholder-white/60 focus:outline-none">
+            <input type="password" name="password" placeholder="Password" required class="w-full p-3 rounded-lg bg-white/20 text-white placeholder-white/60 focus:outline-none">
+            <button type="submit" class="w-full p-3 bg-purple-600 hover:bg-purple-700 text-white font-bold rounded-lg transition">Login</button>
+        </form>
+        <p class="text-white text-center mt-4">Already have an account? <a href="chatsignup.html" class="text-purple-300 hover:underline">Log in</a></p>
+    </div>
+    
+    <!-- Floating Bubbles -->
+    <script>
+        for (let i = 0; i < 10; i++) {
+            let bubble = document.createElement('div');
+            bubble.classList.add('bubble');
+            document.body.appendChild(bubble);
+            bubble.style.left = Math.random() * 100 + "vw";
+            bubble.style.top = Math.random() * 100 + "vh";
+            bubble.style.animationDuration = Math.random() * 5 + 5 + "s";
+        }
+    </script>
+</body>
+</html>

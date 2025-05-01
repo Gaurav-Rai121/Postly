@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Settings</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        body {
+            background: radial-gradient(circle at top left, #1e3a8a, #9333ea, #1e3a8a);
+            overflow: hidden;
+        }
+        .bubble {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            animation: float 10s infinite ease-in-out;
+        }
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 0.5; }
+            50% { transform: translateY(-50px); opacity: 0.8; }
+            100% { transform: translateY(0); opacity: 0.5; }
+        }
+        .theme-dark {
+            background: radial-gradient(circle at top left, #000428, #004e92);
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col items-center justify-center theme-dark relative text-white">
+
+    <div class="absolute top-6 left-6 flex items-center space-x-3 w-full justify-between">
+        <!-- Left Side: Logo and Title -->
+        <div class="flex items-center space-x-3">
+            <img src="../newlogo2.png" alt="Chat Logo" class="w-12 h-12">
+            <h1 class="text-white text-3xl font-bold">ChatNest</h1>
+        </div>
+        <!-- Right Side: Profile Image -->  
+    </div>
+    
+    <!-- Settings Container -->
+    <div class="w-full max-w-md p-6 bg-white/10 backdrop-blur-lg rounded-xl shadow-lg border border-white/20">
+        <h2 class="text-white text-2xl font-bold text-center mb-6">Settings</h2>
+        
+        <ul class="space-y-4">
+            <li>
+                <a href="./accountSetting.html" class="block p-3 bg-white/20 rounded-lg hover:bg-white/30 transition">Account Settings <i class="ml-[64%] fas fa-caret-right"></i></a>
+            </li>
+            <li>
+                <a href="./privacySecurity.html" class="block p-3 bg-white/20 rounded-lg hover:bg-white/30 transition">Privacy & Security <i class="ml-[62%] fas fa-caret-right"></i></a>
+            </li>
+
+            <li>
+                <a href="#" class="block p-3 bg-white/20 rounded-lg hover:bg-white/30 transition">Subscription & Become a member <i class="ml-[31%] fas fa-caret-right"></i></a>
+            </li>
+            <li>
+                <a href="#" class="block p-3 bg-white/20 rounded-lg hover:bg-white/30 transition">Help & Feedback<i class="ml-[64%] fas fa-caret-right"></i></a>
+            </li>   
+             <li>
+                <a href="#" class="block p-3 bg-white/20 rounded-lg hover:bg-white/30 transition">Legal & Support<i class="ml-[66%] fas fa-caret-right"></i></a>
+            </li>
+            <li>
+                <a href="#" class="block p-3 bg-red-600 hover:bg-red-700 rounded-lg transition">Log Out</a>
+                
+            </li>
+
+
+            
+
+
+        </ul>
+    </div>
+
+    <script>
+        for (let i = 0; i < 10; i++) {
+            let bubble = document.createElement('div');
+            bubble.classList.add('bubble');
+            document.body.appendChild(bubble);
+            bubble.style.left = Math.random() * 100 + "vw";
+            bubble.style.top = Math.random() * 100 + "vh";
+            bubble.style.animationDuration = Math.random() * 5 + 5 + "s";
+        }
+    </script>
+</body>
+</html>
